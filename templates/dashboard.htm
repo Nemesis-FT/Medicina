@@ -1,0 +1,51 @@
+{% extends "stampo.htm" %}
+{% block title %}Dashboard - Cura{% endblock %}
+{% block content %}
+<div class="jumbotron">
+    <h1 class="display-3">Bentornato!</h1>
+    <p class="lead">In questa pagina è possibile visualizzare lo stato dei medicinali, le prescrizioni della giornata ed interagire con il database.</p>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <a href="/utente_list" class="btn btn-warning btn-block">Gestione utenti</a>
+    </div>
+    <div class="col-md-4">
+        <a href="/medicina_add" class="btn btn-success btn-block">Aggiungi medicinale</a>
+    </div>
+    <div class="col-md-4">
+        <a href="/prescrizione_add" class="btn btn-success btn-block">Crea prescrizione</a>
+    </div>
+</div>
+<br>
+<div class="row">
+    {% for medicina in medicine %}
+    <div class="col-md-4">
+        <ul class="list-group">
+            <li class="list-group-item active"><strong>{{medicina.nome}}</strong></li>
+            <li class="list-group-item"><strong>Compresse rimanenti: </strong>{{medicina.dimensione_scatola}}</li>
+            <li class="list-group-item"><strong>Slot: </strong>{{medicina.slot}}</li>
+            <li class="list-group-item"><a href="/medicina_ricarica/{{medicina.mid}}" class="btn btn-success">Ricarica</a> <a href="/medicina_del/{{medicina.mid}}" class="btn btn-danger">Elimina</a></li>
+        </ul>
+    </div>
+    {% endfor %}
+</div>
+<br>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Ora</th>
+        <th>Paziente</th>
+        <th>Medicina</th>
+        <th>Azioni</th>
+    </tr>
+    </thead>
+    {% for prescrizione in prescrizioni %}
+    <tr>
+        <td>{{prescrizione[3]}}</td>
+        <td>{{prescrizione[9]}}</td>
+        <td>{{prescrizione[5]}}</td>
+        <td><a href="/prescrizione_del/{{prescrizione[0]}}">Elimina</a></td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

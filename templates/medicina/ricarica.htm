@@ -1,0 +1,13 @@
+{% extends "stampo.htm" %}
+{% block title %}Ricarica Medicina - Cura{% endblock %}
+{% block content %}
+<h1>Ricarica Medicina</h1>
+<form action="/medicina_ricarica/{{mid}}" method="POST">
+    <div class="form-group">
+            <label for="valore">Nuovo valore</label>
+            <input type="number" class="form-control" id="valore" aria-describedby="emailHelp"
+                   placeholder="6" name="valore">
+        </div>
+    <button type="submit" class="btn btn-primary">Aggiorna</button>
+</form>
+{% endblock %}

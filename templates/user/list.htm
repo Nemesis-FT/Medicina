@@ -1,0 +1,20 @@
+{% extends "stampo.htm" %}
+{% block title %}Lista Pazienti - Cura{% endblock %}
+{% block content %}
+<h1>Lista Pazienti</h1>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Nome e Cognome</th>
+        <th>Azioni</th>
+    </tr>
+    </thead>
+    {% for oggetto in entita %}
+    <tr>
+        <td>{{oggetto.username}}</td>
+        <td><a href="/utente_del/{{oggetto.uid}}">Elimina</a></td>
+    </tr>
+    {% endfor %}
+</table>
+<a href="/utente_add" class="btn btn-success btn-block">Aggiungi utente</a>
+{% endblock %}

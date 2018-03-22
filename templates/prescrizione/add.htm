@@ -1,0 +1,34 @@
+{% extends "stampo.htm" %}
+{% block title %}Aggiunta Prescrizione - Cura{% endblock %}
+{% block content %}
+<h1>Aggiunta Prescrizione</h1>
+<form action="/prescrizione_add" method="POST">
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label for="ora" class="col-form-label">Ora</label>
+            <input type="text" class="form-control" id="ora" placeholder="14:00" name="ora">
+        </div>
+        <div class="form-group col-md-4">
+            <label for="paziente" class="col-form-label">Paziente</label>
+            <br>
+            <select class="custom-select" id="paziente" name="paziente">
+                <option selected>Seleziona...</option>
+                {% for paziente in pazienti %}
+                <option value="{{paziente.uid}}">{{paziente.username}}</option>
+                {%endfor%}
+            </select>
+        </div>
+        <div class="form-group col-md-4">
+            <label for="medicina" class="col-form-label">Medicina</label>
+            <br>
+            <select class="custom-select" id="medicina" name="medicina">
+                <option selected>Seleziona...</option>
+                {% for medicina in medicine %}
+                <option value="{{medicina.mid}}">{{medicina.nome}}</option>
+                {%endfor%}
+            </select>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Aggiungi</button>
+</form>
+{% endblock %}

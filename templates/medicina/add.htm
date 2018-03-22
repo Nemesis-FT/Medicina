@@ -1,0 +1,25 @@
+{% extends "stampo.htm" %}
+{% block title %}Aggiunta Medicina - Cura{% endblock %}
+{% block content %}
+<h1>Aggiunta Medicina</h1>
+<form action="/medicina_add" method="POST">
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label for="nome">Nome medicina</label>
+            <input type="text" class="form-control" id="nome" aria-describedby="emailHelp"
+                   placeholder="Tachipirina" name="nome">
+        </div>
+        <div class="form-group col-md-4">
+            <label for="numerop">Quantità pastiglie</label>
+            <input type="number" class="form-control" id="numerop" aria-describedby="emailHelp"
+                   placeholder="6" name="numerop">
+        </div>
+        <div class="form-group col-md-4">
+            <label for="slot">Slot</label>
+            <input type="number" class="form-control" id="slot" aria-describedby="emailHelp"
+                   placeholder="1" name="slot">
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Aggiungi</button>
+</form>
+{% endblock %}

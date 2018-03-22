@@ -1,0 +1,13 @@
+{% extends "stampo.htm" %}
+{% block title %}Aggiunta paziente - Cura{% endblock %}
+{% block content %}
+<h1>Aggiunta Paziente</h1>
+<form action="/utente_add" method="POST">
+    <div class="form-group">
+        <label for="username">Nome e cognome Paziente</label>
+        <input type="text" class="form-control" id="username" aria-describedby="emailHelp"
+               placeholder="Mario Rossi" name="username">
+    </div>
+    <button type="submit" class="btn btn-primary">Aggiungi</button>
+</form>
+{% endblock %}
